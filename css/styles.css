@@ -72,7 +72,8 @@ li.scoreboard-line {
   position: relative;
 }
 
-li.scoreboard-line:hover::after {
+li.scoreboard-line::after {
+  opacity: 0;
   content: "Some useful info about this score line.";
   position: absolute;
   right: -280px;
@@ -80,6 +81,11 @@ li.scoreboard-line:hover::after {
   background-color: lightgray;
   border-radius: 5px;
   padding: 5px;
+  transition: all 3s;
+}
+
+li.scoreboard-line:hover::after {
+  opacity: 1;
 }
 
 #sorting-buttons {
