@@ -30,9 +30,12 @@
     <a href="#how">How</a>
     <hr />
     <h1>Scoreboard</h1>
-    <input type="text" />
-    <input type="number" />
-    <button>Add score</button>
+
+
+    <div id="sorting-buttons">
+      <button onclick="visualizeScores('name')">Sort by name</button>
+      <button onclick="visualizeScores('score')">Sort by score</button>
+    </div>
     <ol id="scoreboard-list">
       <!--
       These elements, the scores, the list elements

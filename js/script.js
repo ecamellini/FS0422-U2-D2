@@ -18,7 +18,7 @@ let scores = [ // In the real world this list here will come from somewhere else
   { name: "Joe", score: 33},
   { name: "Jake", score: 45},
   { name: "Victor", score: 10},
-  { name: "Ericccc", score: 100 },
+  { name: "Eric", score: 95 },
   { name: "Timasdasd", score: 90},
   { name: "Paulfsdafsdf", score: 80},
   { name: "Jimsdfdsaf", score: 60},
@@ -38,8 +38,11 @@ function sortScoresByScore(scoreObject1, scoreObject2) {
   // Returns -1 if the first number >= the second one.
   if (scoreObject1.score < scoreObject2.score) {
     return +1;
-  } else {
+  } else if (scoreObject1.score > scoreObject2.score) {
     return -1;
+  } else {
+    // If they have the same score
+    return sortScoresByName(scoreObject1, scoreObject2)
   }
 }
 
@@ -47,18 +50,31 @@ function sortScoresByScore(scoreObject1, scoreObject2) {
 function sortScoresByName(scoreObject1, scoreObject2) {
   if (scoreObject1.name < scoreObject2.name) {
     return -1;
-  } else {
+  } else if (scoreObject1.name > scoreObject2.name) {
     return +1;
+  } else {
+    // If they have the same name
+    if (scoreObject1.score !== scoreObject2.score) {
+      return sortScoresByScore(scoreObject1, scoreObject2)
+    } else { // To avoid infinite inception of function calls
+      return 0;
+    }
   }
 }
 // Then you can call scores.sort(sortScoresByName)
 
 // This is a function, so the name shall be a VERB
-function visualizeScores() {
+function visualizeScores( sorting ) {
 
   // Here we are sorting the scores array using as sorting function
   // the function sortScores as defined above.
-  let sortedScores = scores.sort(sortScoresByScore)
+
+  let sortedScores = scores // By default we don't sort...
+  if ( sorting === 'name') {
+    sortedScores = scores.sort(sortScoresByName)
+  } else if (sorting === 'score') {
+    sortedScores = scores.sort(sortScoresByScore)
+  }
 
   // We could also have defined the function here, inline, inside
   // the sort parameter.
@@ -71,6 +87,12 @@ function visualizeScores() {
   //     }
   //   }
   // )
+
+  // 0) We clean the ordered list, so that we start with an empty <ol>
+  let ol = document.getElementById('scoreboard-list')
+  ol.innerHTML = '' // We start from a clean state, so that every time we
+  // call this function, it correctly visualizes all the elements
+  // without duplicating them
 
   // 1) For each element inside the array of scores...
   for (let scoreObject of sortedScores) {
@@ -97,7 +119,6 @@ function visualizeScores() {
     }
 
     // 3) appending them to the ol, to their parent
-    let ol = document.getElementById('scoreboard-list')
     ol.appendChild(li)
   }
 }
