@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FS0422 Unit 2 - Day 1</title>
+
+  <!-- 1) Normalize CSS to avoid weird browser defaults (user agent stylesheets) -->
+  <link rel="stylesheet" href="css/normalize.css">
+
+  <!-- 2) After normalize CSS we add our own style, so that it prevails ove it. -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <!--
+    We want to visualize a scoreboard.
+    Imagine you have different entitities that are competing.
+    For example, different players playing a game.
+    Now, each one of these entities has a score - and we want to visualize
+    a scoreboard, i.e., a list of the current scores.
+
+    Also, we want to have a way to choose sorting: we can sort by score
+    or by alphabetical order.
+  -->
+  <div id="container">
+
+    <h1>Scoreboard</h1>
+
+    <ol id="scoreboard-list">
+      <!--
+      These elements, the scores, the list elements
+      will be displayed dynamically using JS.
+
+      Each element will be something like this:
+      <li class="scoreboard-line">
+        <span class="item-name">Eric</span>
+        <span class="item-score">100</span>
+      </li>
+    -->
+    </ol>
+
+    <hr />
+    <h2>How to read the scoreboard:</h2>
+    <ul id="how-to-read">
+      <li class="how-to-read-li good-score">
+        <span class="item-name">Score >= 60</span>
+        <span class="item-score">100</span>
+      </li>
+      <li class="how-to-read-li bad-score">
+        <span class="item-name">Score < 60</span>
+            <span class="item-score">50</span>
+      </li>
+    </ul>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

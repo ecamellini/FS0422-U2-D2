@@ -1,0 +1,62 @@
+#container {
+  max-width: 600px;
+  margin-inline: auto;
+
+  padding-inline: 20px;
+
+  text-align: center;
+  /* This is the same:
+    margin-right: auto;
+    margin-left: auto;
+  */
+}
+
+:is(ul, li) {
+  padding-left: 25px;
+}
+
+/*
+  If i use :where here, it will have a specificity of 0.
+  It means that the :is that we defined above will win over this.
+*/
+:is(#container ol#scoreboard-list,
+  #container ul#how-to-read) {
+  padding-left: 0px;
+}
+
+:is(#container ol#scoreboard-list li.scoreboard-line,
+  #container #how-to-read .how-to-read-li) {
+  text-align: left;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 20px;
+  list-style: none;
+
+  /* Display flex tells the browser that
+    the CHILDREN of this element will be displayed
+    according to the flex properties we set.
+  */
+  display: flex;
+
+  /* Flex property to manage
+  how elements are positioned on the line.
+  */
+  justify-content: space-between;
+}
+
+:is(.scoreboard-line.good-score,
+  .how-to-read-li.good-score) {
+  background-color: lime;
+}
+
+:is(.scoreboard-line.bad-score,
+  .how-to-read-li.bad-score) {
+  background-color: tomato;
+}
+
+
+:is(.scoreboard-line>span.item-name,
+  .how-to-read-li>span.item-name) {
+  font-weight: bold;
+}
