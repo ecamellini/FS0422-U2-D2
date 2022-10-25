@@ -60,3 +60,24 @@
   .how-to-read-li>span.item-name) {
   font-weight: bold;
 }
+
+
+a[href^="#"] {
+  font-weight: bold;
+  color: coral;
+}
+
+
+li.scoreboard-line {
+  position: relative;
+}
+
+li.scoreboard-line:hover::after {
+  content: "Some useful info about this score line.";
+  position: absolute;
+  right: -280px;
+  border: 1px solid grey;
+  background-color: lightgray;
+  border-radius: 5px;
+  padding: 5px;
+}

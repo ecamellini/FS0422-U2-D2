@@ -18,6 +18,17 @@ let scores = [ // In the real world this list here will come from somewhere else
   { name: "Joe", score: 33},
   { name: "Jake", score: 45},
   { name: "Victor", score: 10},
+  { name: "Ericccc", score: 100 },
+  { name: "Timasdasd", score: 90},
+  { name: "Paulfsdafsdf", score: 80},
+  { name: "Jimsdfdsaf", score: 60},
+  { name: "Maridsafdso", score: 20},
+  { name: "Paolodsfsda", score: 99},
+  { name: "Baracksadfds", score: 66},
+  { name: "Georsdafsadge", score: 75},
+  { name: "Josadfsde", score: 33},
+  { name: "Jakedsfsdf", score: 45},
+  { name: "Victosdfsdar", score: 10},
 ]
 
 
